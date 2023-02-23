@@ -21,6 +21,9 @@
 **Скриншот 3**
 <img src = "img/img-vivod1.jpg" width = 100%>
 
+**Скриншот 4**
+<img src = "img/img-vivod2.jpg" width = 100%>
+
 ---
 
 ### Задание 2
