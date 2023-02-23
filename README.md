@@ -13,11 +13,13 @@
 
 
 **Скриншот 1**
-!img src = "img/img-nastrika1.jpg" width = 100%
+<img src = "img/img-nastrika1.jpg" width = 100%>
+
 **Скриншот 2**
-!img src = "img/img-nastrika2.jpg" width = 100%
+<img src = "img/img-nastrika2.jpg" width = 100%>
+
 **Скриншот 3**
-!img src = "img-vivod1.jpg" width = 100%
+<img src = "img-vivod1.jpg" width = 100%>
 
 ---
 
