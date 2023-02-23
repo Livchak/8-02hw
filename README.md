@@ -15,13 +15,13 @@
 **Скриншот 1** Настройка
 <img src = "img/img-nastrika1.jpg" width = 100%>
 
-**Скриншот 2**
+**Скриншот 2** Настройка
 <img src = "img/img-nastrika2.jpg" width = 100%>
 
-**Скриншот 3**
+**Скриншот 3** Вывод
 <img src = "img/img-vivod1.jpg" width = 100%>
 
-**Скриншот 4**
+**Скриншот 4** Вывод
 <img src = "img/img-vivod2.jpg" width = 100%>
 
 ---
@@ -35,16 +35,16 @@
 3. `произвел запуск тестов`
 
 
-**Скриншот 51**
+**Скриншот 51** Настройка
 <img src = "img/img-nastrika3.jpg" width = 100%>
 
-**Скриншот 6**
+**Скриншот 6** Вывод
 <img src = "img/img-vivod3.jpg" width = 100%>
 
-**Скриншот 7**
+**Скриншот 7** Вывод
 <img src = "img/img-vivod4.jpg" width = 100%>
 
-**Скриншот 8**
+**Скриншот 8** Вывод из Nexus
 <img src = "img/img-nexus-vivod.jpg" width = 100%>
 
 ---
