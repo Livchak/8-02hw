@@ -19,7 +19,7 @@
 <img src = "img/img-nastrika2.jpg" width = 100%>
 
 **Скриншот 3**
-<img src = "img-vivod1.jpg" width = 100%>
+<img src = "img/img-vivod1.jpg" width = 100%>
 
 ---
 
