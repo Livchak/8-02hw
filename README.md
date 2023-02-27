@@ -109,6 +109,15 @@ pipeline {
 2. `создаём "credentials" и копируем их номер`
 3. `загружаем файл этим плагином в Nexus3`
 
+
+**Скриншот 12** 
+<img src = "img/zadanie4-vivod1.jpg" width = 100%>
+
+
+**Скриншот 13** 
+<img src = "img/zadanie4-vivod2.jpg" width = 100%>
+
+
 ```
 pipeline {
  agent any
@@ -146,3 +155,4 @@ pipeline {
 }
 
 ```
+
