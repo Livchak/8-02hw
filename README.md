@@ -54,50 +54,95 @@
 `Cборка и пуш в Nexus`
 
 1. `Исполнить команду "go build main.go" удалось только явно указав путь до файла go*, пытался прописывать path разными способавми, не сработало, в vagrand тоже не работало`
-2. `Как сделать пуш файла в нексус, не могу разобраться`
+2. `Пушим в нексус3 переименованный файл с учётом версии`
 
 **Скриншот 9** 
 <img src = "img/img-sborka1.jpg" width = 100%>
 
+**Скриншот 10** 
+<img src = "img/git-modified-pipeline2.jpg" width = 100%>
 
+**Скриншот 11** 
+<img src = "img/git-modified-pipeline3.jpg" width = 100%>
+
+```
+pipeline {
+ agent any
+  environment {
+    VERSION = '1.0'
+  }
+ stages {
+  stage('Git') {
+   steps {git 'https://github.com/netology-code/sdvps-materials.git'}
+  }
+  stage('Test') {
+   steps {
+    sh '/usr/local/go/bin/go test .'
+   }
+  }
+    stage('Build') {
+   steps {
+    sh '/usr/local/go/bin/go build main.go'
+   }
+  }
+   stage('Package') {
+      steps {
+        sh "mv main main-${VERSION}.txt"
+        // Package your project, adding the version to the filename
+      }
+    }
+    stage('Push') {
+   steps {
+    sh 'curl -v -u admin:admin http://192.168.56.10:8081/repository/pipeline2/ --upload-file *.txt'
+  }
+ }
+}
+}
+
+```
 
 ### Задание 4
 
-`Приведите ответ в свободной форме........`
+`Делаем так чтобы загруженный артифакт отображал версию сборки `
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+1. `устанавливаем плагин Nexus Artifact Uploader`
+2. `создаём "credentials" и копируем их номер`
+3. `загружаем файл этим плагином в Nexus3`
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+pipeline {
+ agent any
+ stages {
+  stage('Git') {
+   steps {git 'https://github.com/netology-code/sdvps-materials.git'}
+  }
+  stage('Test') {
+   steps {
+    sh '/usr/local/go/bin/go test .'
+   }
+  }
+    stage('Build') {
+   steps {
+    sh '/usr/local/go/bin/go build main.go'
+   }
+  }
+    stage('Upload') {
+      steps {
+        nexusArtifactUploader(
+          nexusVersion: 'nexus3',
+          protocol: 'http',
+          nexusUrl: '192.168.56.10:8081',
+          groupId: 'com.example',
+          version: "1.0.${env.BUILD_NUMBER}",
+          repository: 'pipeline2',
+          credentialsId: '6d6ce6b5-0099-445f-bc7c-2a98fb202aea',
+          artifacts: [
+            [artifactId: 'main', classifier: '', file: 'main.go', type: 'go']
+          ]
+        )
+      }
+    }
+}
+}
+
 ```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
-
----
-## Дополнительные задания (со звездочкой*)
-
-Эти задания дополнительные (не обязательные к выполнению) и никак не повлияют на получение вами зачета по этому домашнему заданию. Вы можете их выполнить, если хотите глубже и/или шире разобраться в материале.
-
-### Задание 5
-
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
